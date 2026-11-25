@@ -164,7 +164,7 @@
 
     /* ---------- Order ---------- */
     .order { max-width: 600px; margin: 0 auto; }
-    .coming-soon { text-align: center; font-family: "Pacifico", cursive; font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--pink-500); margin: 0; }
+    .email-big { text-align: center; font-size: 1.3rem; font-weight: 600; word-break: break-word; }
 
     footer { text-align: center; padding-block: 30px; border-top: 2px dashed var(--pink-200); margin-top: 40px; }
   </style>
@@ -227,9 +227,17 @@
 
     <section id="order" class="wrap">
       <h2>Place an Order</h2>
+      <p class="subtitle">Email me your order and I'll get back to you!</p>
       <div class="card order">
-        <p class="coming-soon">Email orders coming soon! ✨</p>
-        <p style="text-align:center">I'm getting everything ready. Check back soon to order your bracelet. 💖</p>
+        <p class="email-big"><a href="mailto:amelia@enchantedbracelets.com">amelia@enchantedbracelets.com</a></p>
+        <p>In your email, please include:</p>
+        <ul>
+          <li>Your name</li>
+          <li>Which bracelet you'd like (a favorite, or your own colors)</li>
+          <li>Size</li>
+          <li>How many</li>
+        </ul>
+        <p style="text-align:center"><a class="btn" id="emailBtn" href="#">Email My Order ✨</a></p>
       </div>
     </section>
   </main>
@@ -316,6 +324,22 @@
       drawBracelet(preview, picked.map(c => COLORS[c]));
     }
     updateDesigner();
+
+    // Orders are placed by email
+    const ORDER_EMAIL = "amelia@enchantedbracelets.com";
+    function orderEmailLink(design) {
+      const subject = "Enchanted Bracelets order";
+      const body = "Hi Amelia!\n\nI'd like to order:\n" +
+        (design || "Bracelet: \nSize: \n") +
+        "How many: \n\nMy name: \n";
+      return `mailto:${ORDER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
+    document.getElementById("emailBtn").href = orderEmailLink();
+
+    // "Order This Design" starts an email with the chosen colors and size
+    document.getElementById("useDesign").addEventListener("click", e => {
+      e.currentTarget.href = orderEmailLink(`Colors: ${picked.join(", ")}\nSize: ${size.value}\n`);
+    });
 
     // Background sparkles
     const sky = document.querySelector(".sparkles");
