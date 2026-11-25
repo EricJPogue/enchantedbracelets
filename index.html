@@ -3,9 +3,334 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home</title>
+  <title>Enchanted Bracelets</title>
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <meta name="description" content="Handmade custom bracelets, sprinkled with sparkle.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink-50: #fff0f7;
+      --pink-100: #ffe0ef;
+      --pink-200: #ffc2df;
+      --pink-400: #ff7ab8;
+      --pink-500: #ff4fa0;
+      --pink-700: #c2185b;
+      --ink: #5a1a3c;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(194, 24, 91, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Fredoka", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 20%, var(--pink-100) 0, transparent 40%),
+        radial-gradient(circle at 90% 10%, var(--pink-200) 0, transparent 35%),
+        var(--pink-50);
+      line-height: 1.6;
+    }
+
+    h1, h2, .logo { font-family: "Pacifico", cursive; font-weight: 400; }
+
+    a { color: var(--pink-700); }
+
+    .wrap { max-width: 1100px; margin: 0 auto; padding-inline: 20px; }
+
+    /* ---------- Sparkles ---------- */
+    .sparkles { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .sparkle {
+      position: absolute;
+      color: var(--pink-400);
+      animation: twinkle 3s ease-in-out infinite;
+      opacity: 0;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; transform: scale(0.4) rotate(0deg); }
+      50% { opacity: 0.9; transform: scale(1) rotate(45deg); }
+    }
+
+    main, header, footer { position: relative; z-index: 1; }
+
+    /* ---------- Header ---------- */
+    header {
+      position: sticky;
+      top: env(safe-area-inset-top, 0px);
+      background: rgba(255, 240, 247, 0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px dashed var(--pink-200);
+      z-index: 10;
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; flex-wrap: wrap; }
+    .logo { font-size: 1.7rem; color: var(--pink-500); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+    .logo img { width: 48px; height: 48px; }
+    .hero-logo { width: 160px; height: 160px; filter: drop-shadow(0 8px 16px rgba(194,24,91,0.25)); animation: float 4s ease-in-out infinite; }
+    @keyframes float { 50% { transform: translateY(-8px) rotate(-3deg); } }
+    .nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+    .nav ul a { text-decoration: none; font-weight: 600; }
+    .nav ul a:hover { color: var(--pink-500); }
+
+    /* ---------- Hero ---------- */
+    .hero { text-align: center; padding-block: 70px 50px; }
+    .hero h1 {
+      font-size: clamp(2.6rem, 8vw, 5rem);
+      margin: 0;
+      background: linear-gradient(90deg, var(--pink-500), #ff9ccf, var(--pink-700), var(--pink-500));
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shimmer 6s linear infinite;
+    }
+    @keyframes shimmer { to { background-position: 300% 0; } }
+    .hero p { font-size: 1.25rem; max-width: 560px; margin: 12px auto 28px; }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--pink-400), var(--pink-500));
+      color: var(--white);
+      font: 600 1.1rem "Fredoka", sans-serif;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.15s;
+    }
+    .btn:hover { transform: translateY(-2px) scale(1.03); }
+
+    /* ---------- Sections ---------- */
+    section { padding-block: 50px; }
+    section h2 { text-align: center; font-size: clamp(2rem, 5vw, 2.8rem); color: var(--pink-500); margin: 0 0 8px; }
+    .subtitle { text-align: center; margin: 0 0 36px; }
+
+    .card {
+      background: var(--white);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    /* ---------- Bracelet drawing ---------- */
+    .bracelet { position: relative; width: 180px; height: 180px; margin: 0 auto; }
+    .bead {
+      position: absolute;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      box-shadow: inset -4px -4px 6px rgba(0,0,0,0.15), inset 3px 3px 5px rgba(255,255,255,0.7);
+      display: grid; place-items: center;
+      font: 600 0.75rem "Fredoka", sans-serif;
+      color: var(--ink);
+    }
+
+    /* ---------- Gallery ---------- */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; }
+    .gallery .card { text-align: center; }
+    .gallery h3 { margin: 16px 0 4px; }
+    .price { color: var(--pink-700); font-weight: 600; font-size: 1.1rem; }
+
+    /* ---------- Designer ---------- */
+    .designer { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; align-items: center; }
+    .designer .bracelet { width: 240px; height: 240px; }
+    .swatches { display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0 18px; }
+    .swatch {
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--pink-200);
+      cursor: pointer;
+    }
+    .swatch[aria-pressed="true"] { box-shadow: 0 0 0 3px var(--pink-500); transform: scale(1.1); }
+    label { font-weight: 600; display: block; }
+    input, select, textarea {
+      width: 100%;
+      font: 1rem "Fredoka", sans-serif;
+      padding: 10px 14px;
+      border: 2px solid var(--pink-200);
+      border-radius: 14px;
+      background: var(--pink-50);
+      color: var(--ink);
+      margin: 6px 0 16px;
+    }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--pink-500); }
+    .hint { font-size: 0.9rem; opacity: 0.75; margin-top: -10px; }
+
+    /* ---------- About ---------- */
+    .about { max-width: 720px; margin: 0 auto; text-align: center; font-size: 1.1rem; }
+
+    /* ---------- Order ---------- */
+    .order { max-width: 600px; margin: 0 auto; }
+    .coming-soon { text-align: center; font-family: "Pacifico", cursive; font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--pink-500); margin: 0; }
+
+    footer { text-align: center; padding-block: 30px; border-top: 2px dashed var(--pink-200); margin-top: 40px; }
+  </style>
 </head>
 <body>
-  <h1>Welcome</h1>
+  <div class="sparkles" aria-hidden="true"></div>
+
+  <header>
+    <nav class="wrap nav">
+      <a class="logo" href="#"><img src="logo.svg" alt="">Enchanted Bracelets</a>
+      <ul>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#design">Design Your Own</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#order">Order</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <img class="hero-logo" src="logo.svg" alt="Enchanted Bracelets logo">
+      <h1>Enchanted Bracelets</h1>
+      <p>Handmade custom bracelets, sprinkled with sparkle ✨ Pick your favorite colors and I'll make it just for you!</p>
+      <a class="btn" href="#design">Design Your Bracelet</a>
+    </section>
+
+    <section id="shop" class="wrap">
+      <h2>Our Favorites</h2>
+      <p class="subtitle">A few of our most-loved designs</p>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <section id="design" class="wrap">
+      <h2>Design Your Own</h2>
+      <p class="subtitle">Pick your bead colors and size</p>
+      <div class="card designer">
+        <div class="bracelet" id="preview"></div>
+        <div>
+          <label>Bead colors <span style="font-weight:400">(choose up to 3)</span></label>
+          <div class="swatches" id="swatches"></div>
+          <label for="size">Size</label>
+          <select id="size">
+            <option>Kids (6 in)</option>
+            <option selected>Small (6.5 in)</option>
+            <option>Medium (7 in)</option>
+            <option>Large (7.5 in)</option>
+          </select>
+          <a class="btn" href="#order" id="useDesign">Order This Design</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="wrap">
+      <h2>About Me</h2>
+      <div class="card about">
+        <p>Hi! I'm Amelia. I make every bracelet by hand, one bead at a time. Each one is made for the person who will wear it, so no two are exactly alike. 💖</p>
+      </div>
+    </section>
+
+    <section id="order" class="wrap">
+      <h2>Place an Order</h2>
+      <div class="card order">
+        <p class="coming-soon">Email orders coming soon! ✨</p>
+        <p style="text-align:center">I'm getting everything ready. Check back soon to order your bracelet. 💖</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with love and sparkles by Amelia · © <span id="year"></span> Enchanted Bracelets</p>
+  </footer>
+
+  <script>
+    const COLORS = {
+      "Bubblegum": "#ff8fc7",
+      "Hot Pink": "#ff4fa0",
+      "Blush": "#ffd1e6",
+      "Lavender": "#d7b8ff",
+      "Pearl": "#fdf6f0",
+      "Sky": "#a8dcff",
+      "Mint": "#b5f2d6",
+      "Sunshine": "#ffe680",
+      "Gold": "#f5c451",
+      "Berry": "#b0306b"
+    };
+
+    // Draw a ring of beads; colors repeat as a pattern.
+    function drawBracelet(el, colors) {
+      el.innerHTML = "";
+      const size = el.clientWidth || 180;
+      const beadCount = size > 200 ? 22 : 18;
+      const radius = size / 2 - 16;
+      for (let i = 0; i < beadCount; i++) {
+        const angle = (i / beadCount) * Math.PI * 2;
+        const bead = document.createElement("span");
+        bead.className = "bead";
+        bead.style.left = (size / 2 + radius * Math.cos(angle) - 13) + "px";
+        bead.style.top = (size / 2 + radius * Math.sin(angle) - 13) + "px";
+        bead.style.background = colors[i % colors.length];
+        el.appendChild(bead);
+      }
+    }
+
+    // Gallery
+    const favorites = [
+      { name: "Pink Lemonade", colors: ["Hot Pink", "Sunshine", "Blush"], price: "$8" },
+      { name: "Fairy Garden", colors: ["Lavender", "Mint", "Bubblegum"], price: "$8" },
+      { name: "Princess Pearl", colors: ["Pearl", "Blush", "Gold"], price: "$8" },
+      { name: "Cotton Candy", colors: ["Bubblegum", "Sky"], price: "$8" }
+    ];
+    const gallery = document.getElementById("gallery");
+    favorites.forEach(f => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `<div class="bracelet"></div><h3>${f.name}</h3><div class="price">${f.price}</div>`;
+      gallery.appendChild(card);
+      drawBracelet(card.querySelector(".bracelet"), f.colors.map(c => COLORS[c]));
+    });
+
+    // Designer
+    let picked = ["Bubblegum", "Pearl"];
+    const swatches = document.getElementById("swatches");
+    const preview = document.getElementById("preview");
+    const size = document.getElementById("size");
+
+    Object.entries(COLORS).forEach(([name, hex]) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "swatch";
+      b.title = name;
+      b.setAttribute("aria-label", name);
+      b.style.background = hex;
+      b.onclick = () => {
+        if (picked.includes(name)) {
+          if (picked.length > 1) picked = picked.filter(p => p !== name);
+        } else {
+          picked.push(name);
+          if (picked.length > 3) picked.shift();
+        }
+        updateDesigner();
+      };
+      swatches.appendChild(b);
+    });
+
+    function updateDesigner() {
+      swatches.querySelectorAll(".swatch").forEach(s =>
+        s.setAttribute("aria-pressed", picked.includes(s.title)));
+      drawBracelet(preview, picked.map(c => COLORS[c]));
+    }
+    updateDesigner();
+
+    // Background sparkles
+    const sky = document.querySelector(".sparkles");
+    for (let i = 0; i < 28; i++) {
+      const s = document.createElement("span");
+      s.className = "sparkle";
+      s.textContent = Math.random() > 0.5 ? "✦" : "✧";
+      s.style.left = Math.random() * 100 + "%";
+      s.style.top = Math.random() * 100 + "%";
+      s.style.fontSize = 10 + Math.random() * 18 + "px";
+      s.style.animationDelay = Math.random() * 3 + "s";
+      sky.appendChild(s);
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

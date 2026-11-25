@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Enchanted Bracelets logo">
+  <title>Enchanted Bracelets</title>
+  <circle cx="60" cy="54" r="36" fill="none" stroke="#ffc2df" stroke-width="2"/>
+  <circle cx="60.0" cy="18.0" r="7.5" fill="#ff4fa0" stroke="#c2185b" stroke-width="1"/>
+  <circle cx="57.5" cy="15.5" r="2.2" fill="#fff" opacity="0.85"/>
+  <circle cx="72.3" cy="20.2" r="7.5" fill="#ffd1e6" stroke="#c2185b" stroke-width="1"/>
+  <circle cx="69.8" cy="17.7" r="2.2" fill="#fff" opacity="0.85"/>
+  <circle cx="83.1" cy="26.4" r="7.5" fill="#ff8fc7" stroke="#c2185b" stroke-width="1"/>
+  <circle cx="80.6" cy="23.9" r="2.2" fill="#fff" opacity="0.85"/>
+  <circle cx="91.2" cy="36.0" r="7.5" fill="#fdf6f0" stroke="#c2185b" stroke-width="1"/>
+  <circle cx="88.7" cy="33.5" r="2.2" fill="#fff" opacity="0.85"/>
+  <circle cx="95.5" cy="47.7" r="7.5" fill="#ff4fa0" stroke="#c2185b" stroke-width="1"/>
+  <circle cx="93.0" cy="45.2" r="2.2" fill="#fff" opacity="0.85"/>
+  <circle cx="95.5" cy="60.3" r="7.5" fill="#ffd1e6" stroke="#c2185b" stroke-width="1"/>
+  <circle cx="93.0" cy="57.8" r="2.2" fill="#fff" opacity="0.85"/>
+  <circle cx="91.2" cy="72.0" r="7.5" fill="#ff8fc7" stroke="#c2185b" stroke-width="1"/>
+  <circle cx="88.7" cy="69.5" r="2.2" fill="#fff" opacity="0.85"/>
+  <circle cx="83.1" cy="81.6" r="7.5" fill="#fdf6f0" stroke="#c2185b" stroke-width="1"/>
+  <circle cx="80.6" cy="79.1" r="2.2" fill="#fff" opacity="0.85"/>
+  <circle cx="72.3" cy="87.8" r="7.5" fill="#ff4fa0" stroke="#c2185b" stroke-width="1"/>
+  <circle cx="69.8" cy="85.3" r="2.2" fill="#fff" opacity="0.85"/>
+  <circle cx="60.0" cy="90.0" r="7.5" fill="#ffd1e6" stroke="#c2185b" stroke-width="1"/>
+  <circle cx="57.5" cy="87.5" r="2.2" fill="#fff" opacity="0.85"/>
+  <circle cx="47.7" cy="87.8" r="7.5" fill="#ff8fc7" stroke="#c2185b" stroke-width="1"/>
+  <circle cx="45.2" cy="85.3" r="2.2" fill="#fff" opacity="0.85"/>
+  <circle cx="36.9" cy="81.6" r="7.5" fill="#fdf6f0" stroke="#c2185b" stroke-width="1"/>
+  <circle cx="34.4" cy="79.1" r="2.2" fill="#fff" opacity="0.85"/>
+  <circle cx="28.8" cy="72.0" r="7.5" fill="#ff4fa0" stroke="#c2185b" stroke-width="1"/>
+  <circle cx="26.3" cy="69.5" r="2.2" fill="#fff" opacity="0.85"/>
+  <circle cx="24.5" cy="60.3" r="7.5" fill="#ffd1e6" stroke="#c2185b" stroke-width="1"/>
+  <circle cx="22.0" cy="57.8" r="2.2" fill="#fff" opacity="0.85"/>
+  <circle cx="24.5" cy="47.7" r="7.5" fill="#ff8fc7" stroke="#c2185b" stroke-width="1"/>
+  <circle cx="22.0" cy="45.2" r="2.2" fill="#fff" opacity="0.85"/>
+  <circle cx="28.8" cy="36.0" r="7.5" fill="#fdf6f0" stroke="#c2185b" stroke-width="1"/>
+  <circle cx="26.3" cy="33.5" r="2.2" fill="#fff" opacity="0.85"/>
+  <circle cx="36.9" cy="26.4" r="7.5" fill="#ff4fa0" stroke="#c2185b" stroke-width="1"/>
+  <circle cx="34.4" cy="23.9" r="2.2" fill="#fff" opacity="0.85"/>
+  <circle cx="47.7" cy="20.2" r="7.5" fill="#ffd1e6" stroke="#c2185b" stroke-width="1"/>
+  <circle cx="45.2" cy="17.7" r="2.2" fill="#fff" opacity="0.85"/>
+  <!-- heart charm -->
+  <line x1="60" y1="97" x2="60" y2="102" stroke="#c2185b" stroke-width="1.5"/>
+  <path d="M60 117 C48 109 46 102 50 99 C54 96 58 98 60 101 C62 98 66 96 70 99 C74 102 72 109 60 117Z" fill="#ff4fa0" stroke="#c2185b" stroke-width="1.2"/>
+  <circle cx="55" cy="103" r="1.6" fill="#fff" opacity="0.9"/>
+  <!-- sparkles -->
+  <path d="M60 43 Q60 54 71 54 Q60 54 60 65 Q60 54 49 54 Q60 54 60 43Z" fill="#ff4fa0"/>
+  <path d="M98 7 Q98 14 105 14 Q98 14 98 21 Q98 14 91 14 Q98 14 98 7Z" fill="#ff8fc7"/>
+  <path d="M16 17 Q16 22 21 22 Q16 22 16 27 Q16 22 11 22 Q16 22 16 17Z" fill="#f5c451"/>
+  <path d="M106 88 Q106 92 110 92 Q106 92 106 96 Q106 92 102 92 Q106 92 106 88Z" fill="#ff8fc7"/>
+  <path d="M12 82 Q12 88 18 88 Q12 88 12 94 Q12 88 6 88 Q12 88 12 82Z" fill="#ff4fa0"/>
+</svg>
